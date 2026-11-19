@@ -1,244 +1,58 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Platform Technologies Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Platform Technologies Website</title>
     <style>
-        :root {
-            --ink: #1b2430;
-            --muted: #5b6673;
-            --page: #f3f5f7;
-            --card: #ffffff;
-            --deep: #12343b;
-            --accent: #0f766e;
-            --accent-dark: #0b5a54;
-            --soft: #e3eef0;
+        * {
+            box-sizing: border-box;
         }
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; scroll-padding-top: 70px; }
         body {
             margin: 0;
-            font-family: "Source Sans 3", Arial, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: var(--ink);
-            background: var(--page);
+            background: #f4f4f4;
         }
-        h1, h2, h3 { font-family: "Sora", Arial, sans-serif; line-height: 1.25; }
         header {
             text-align: center;
-            padding: 56px 20px 48px;
-            background: var(--deep);
-            color: #fff;
-        }
-        header h1 {
-            margin: 0 0 8px;
-            font-size: clamp(1.6rem, 4vw, 2.4rem);
-            animation: rise 0.7s ease-out both;
-        }
-        header p { margin: 0; color: #bcd6d9; }
-        @keyframes rise {
-            from { opacity: 0; transform: translateY(14px); }
-            to { opacity: 1; transform: none; }
+            padding: 40px 20px;
+            background: #222;
+            color: white;
         }
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: var(--accent-dark);
             text-align: center;
-            padding: 10px 15px;
+            padding: 15px;
+            background: #444;
         }
         nav a {
-            color: #fff;
+            color: white;
             text-decoration: none;
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 6px;
+            margin: 0 15px;
         }
-        nav a:hover, nav a:focus-visible { background: rgba(255,255,255,0.18); outline: none; }
-        .menu-btn {
-            display: none;
-            background: transparent;
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.5);
-            border-radius: 6px;
-            padding: 6px 14px;
-            font: inherit;
-            cursor: pointer;
+        nav a:hover {
+            text-decoration: underline;
         }
-        main { max-width: 900px; margin: auto; padding: 24px 20px; }
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
         section {
-            background: var(--card);
+            background: white;
             margin-bottom: 20px;
-            padding: 28px;
+            padding: 25px;
             border-radius: 8px;
-            border: 1px solid #e1e6ea;
         }
-        h2 { margin-top: 0; }
-        .profile { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
-        .avatar {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            background: var(--accent);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: "Sora", Arial, sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            flex-shrink: 0;
+        h2 {
+            margin-top: 0;
         }
-        .profile p { margin: 2px 0; }
-        .cards {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 12px;
-        }
-        .cards li {
-            background: var(--soft);
-            border-left: 4px solid var(--accent);
-            padding: 12px 14px;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        .cards li:hover { background: #d3e6e9; }
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        .btn:hover, .btn:focus-visible { background: var(--accent-dark); }
-        .facts { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; margin: 0 0 20px; }
-        .facts dt { color: var(--muted); }
-        .facts dd { margin: 0; font-weight: 600; }
         footer {
             text-align: center;
-            padding: 28px 20px;
-            background: var(--deep);
-            color: #fff;
-        }
-        footer p { margin: 4px 0; }
-        @media (max-width: 640px) {
-            .menu-btn { display: inline-block; }
-            nav .links { display: none; flex-direction: column; margin-top: 10px; }
-            nav.open .links { display: flex; }
-            section { padding: 20px; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>My Platform Technologies Website</h1>
-        <p>IT-PT 101 – Platform Technologies</p>
-    </header>
-
-    <nav id="nav">
-        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="links">Menu</button>
-        <div class="links" id="links">
-            <a href="#home">Home</a>
-            <a href="#about">About Me</a>
-            <a href="#platform">Platform Technologies</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <main>
-        <section id="home">
-            <h2>Welcome!</h2>
-            <p>
-                Welcome to my Week 8 Web Hosting Laboratory Activity.
-                This website demonstrates how a static website can be
-                deployed using a free web hosting platform.
-            </p>
-            <p>
-                This website is hosted using GitHub Pages.
-            </p>
-            <a class="btn" href="#platform">Explore platform technologies</a>
-        </section>
-
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="profile">
-                <div class="avatar" aria-hidden="true">EL</div>
-                <div>
-                    <p><strong>Name:</strong> Eduardo D. Lamayon Jr.</p>
-                    <p><strong>Program:</strong> BSIT</p>
-                    <p><strong>Course:</strong> ITE211 – Platform Technologies</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="platform">
-            <h2>Platform Technologies</h2>
-            <p>
-                Platform technologies provide the hardware, operating
-                systems, software environments, cloud services, and
-                infrastructure required to develop and operate
-                information systems.
-            </p>
-            <ul class="cards">
-                <li>Operating Systems</li>
-                <li>Virtualization</li>
-                <li>Cloud Computing</li>
-                <li>Web Servers</li>
-                <li>Web Hosting</li>
-                <li>Databases</li>
-                <li>Containerization</li>
-            </ul>
-            <p>
-                I successfully deployed a static website using GitHub Pages
-                and compared it with a locally hosted Apache web server.
-            </p>
-        </section>
-
-        <section id="contact">
-            <h2>Laboratory Information</h2>
-            <dl class="facts">
-                <dt>Laboratory activity</dt><dd>Week 8</dd>
-                <dt>Topic</dt><dd>Web Hosting and Web Servers</dd>
-                <dt>Hosting platform</dt><dd>GitHub Pages</dd>
-            </dl>
-            <a class="btn" href="https://pages.github.com" target="_blank" rel="noopener">Visit GitHub Pages</a>
-        </section>
-    </main>
-
-    <footer>
-        <p>Created for ITE211 – Platform Technologies</p>
-        <p>© 2026 Eduardo D. Lamayon Jr.</p>
-    </footer>
-
-    <script>
-        var nav = document.getElementById("nav");
-        var btn = document.getElementById("menuBtn");
-        btn.addEventListener("click", function () {
-            var open = nav.classList.toggle("open");
-            btn.setAttribute("aria-expanded", open);
-        });
-        document.querySelectorAll("#links a").forEach(function (a) {
-            a.addEventListener("click", function () {
-                nav.classList.remove("open");
-                btn.setAttribute("aria-expanded", false);
-            });
-        });
-    </script>
-</body>
-</html>
+            padding: 25px;
+            background: #222;
+            color: white;
